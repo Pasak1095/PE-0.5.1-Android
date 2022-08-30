@@ -36,44 +36,25 @@ jobs:
 
       - name: Install Haxelib
         run: |
-                    haxelib setup ~/haxelib
-
-          haxelib install hxcpp > /dev/null
-
+          haxelib install hxcpp > nul
           haxelib install lime
-
           haxelib install openfl
-
           haxelib --never install flixel
-
           haxelib run lime setup flixel
-
           haxelib run lime setup
-
           haxelib install flixel-tools
-
           haxelib install flixel-ui
-
           haxelib install flixel-addons
-
           haxelib install tjson
-
           haxelib install hxjsonast
-
-          haxelib git linc_luajit https://github.com/AndreiRudenko/linc_luajit
-
+          haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
           haxelib install hscript
-
           haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
-
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-
           haxelib install hxcpp-debug-server
-
           haxelib list
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
-
       - name: Setup Lime
         run: |
           haxelib run lime setup -alias -y
