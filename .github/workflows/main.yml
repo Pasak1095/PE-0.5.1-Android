@@ -66,9 +66,9 @@ jobs:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Build APK
-        run: haxelib run lime build Project.xml html5 --app-version="4.0.0-${{ github.run_id}}"
+        run: haxelib run lime build Project.xml android --app-version="4.0.0-${{ github.run_id}}"
       - name: Publish Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
           name: androidBuild
-          path: 'export/release/html5/bin'
+          path: 'export/release/android/bin'
