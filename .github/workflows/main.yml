@@ -44,6 +44,7 @@ jobs:
 
       - name: Install Haxelib
         run: |
+          haxelib setup ~/haxelib
           haxelib --quiet install lime
           haxelib --quiet install openfl
           haxelib --quiet install flixel
