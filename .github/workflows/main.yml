@@ -65,8 +65,9 @@ jobs:
           haxelib run lime config JAVA_HOME $JAVA_HOME
           haxelib run lime config ANDROID_SETUP true
         env:
-         ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-      - name: Build APK
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+
+      - name: Compile
         run: haxelib run lime build android --app-version="4.0.0-${{ github.run_id}}"
 
       - name: Publish Artifact
